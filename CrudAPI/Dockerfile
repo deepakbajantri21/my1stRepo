@@ -1,8 +1,6 @@
-FROM node:14.17.3
-COPY package*.json ./
-RUN npm install -g @angular/cli
-RUN npm install --only=production
-COPY . ./
-RUN ng serve
-EXPOSE 8080
-CMD ["node", "server.js"]
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /
+COPY ..
+RUN dotnet restore
+RUN dotnet publish -c release -o /app --no-restore
+ENTRYPOINT ["dotnet", "aspnetapp.dll"]
