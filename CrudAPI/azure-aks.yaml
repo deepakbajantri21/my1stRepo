@@ -9,11 +9,11 @@ spec:
       app: dotnet-app
   template:
     metadata:
-      labels: dotnet-app
-        app: 
+      labels: 
+        app: dotnet-app
     spec:
       containers:
-      - name: 
+      - name: aspcontainer
         image: acrangular.azurecr.io/angular-app:latest
         ports:
         - containerPort: 8080
