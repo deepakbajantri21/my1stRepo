@@ -4,3 +4,4 @@ COPY ..
 RUN dotnet restore
 RUN dotnet publish -c release -o /app --no-restore
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+EXPOSE 440
