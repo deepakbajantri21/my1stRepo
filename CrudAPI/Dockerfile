@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+COPY . /
 WORKDIR /
-COPY . .
-RUN dotnet restore
-RUN dotnet publish -c release -o /app --no-restore
-ENTRYPOINT ["dotnet", "aspnetapp.dll"]
-EXPOSE 440
+RUN ["dotnet", "restore"]
+RUN ["dotnet", "build"]
+ENTRYPOINT ["dotnet", "run"]
+EXPOSE 5100
