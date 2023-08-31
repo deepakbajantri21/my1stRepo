@@ -16,7 +16,7 @@ spec:
       - name: aspcontainer
         image: acrangular.azurecr.io/asp-app:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 5100
 # service type loadbalancer       
 ---
 apiVersion: v1
@@ -28,6 +28,6 @@ spec:
     app: dotnet-app
   ports:
     - protocol: TCP
-      port: 5000
-      targetPort: 5000
+      port: 5100
+      targetPort: 5100
   type: LoadBalancer
