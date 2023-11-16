@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["CrudAPI/CrudAPI/CrudAPI.csproj", "CrudAPI/CrudAPI"]
-RUN dotnet restore "CrudAPI/CrudAPI/CrudAPI.csproj"
+COPY ["CrudAPI/CrudAPI/CrudAPI.csproj", "CrudAPI/"]
+RUN dotnet restore "CrudAPI/CrudAPI.csproj"
 COPY . .
-WORKDIR "/src/CrudAPI/CrudAPI"
+WORKDIR "/src/CrudAPI/"
 RUN dotnet build "CrudAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
