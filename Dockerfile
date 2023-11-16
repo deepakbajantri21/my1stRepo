@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["CrudAPI/CrudAPI/CrudAPI.csproj", "CrudAPI/"]
+COPY ["CrudAPI/CrudAPI/CrudAPI.csproj", "CrudAPI/CrudAPI"]
 RUN dotnet restore "CrudAPI/CrudAPI/CrudAPI.csproj"
 COPY . .
 WORKDIR "/src/CrudAPI"
